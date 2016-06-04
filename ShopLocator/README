@@ -1,0 +1,23 @@
+Decided to use double for latitude/longitude after reading 
+http://stackoverflow.com/questions/6754881/java-double-vs-bigdecimal-for-latitude-longtitude
+
+to use the application we can use run the class RestServer
+the urls
+ http://localhost:8080/rest/ShopLocatorService/addShop
+ http://localhost:8080/rest/ShopLocatorService/selectClosestShop
+ http://localhost:8080/rest/ShopLocatorService/getShopList
+ http://localhost:8080/rest/rest/ShopLocatorService/test
+ 
+ allow us to play with the application 
+ we can also use curl e.g.
+ curl  -H "Content-Type: application/json" -X POST -d '{"name":"HawthorneClose","number":"2","postCode":"n14aw"}' http://localhost:8080/rest/ShopLocatorService/addShop
+ 
+ to enable security (which I am having some trouble with) the application 
+ needs to have the maven element spring-security-config uncommented 
+ to have the rest calls work without entering the user/password 
+ we can uncomment the 
+ //@ImportResource("classpath:security.xml") 
+ in the RestServer class.
+ our urls then need to have "?j_username=normal_user&j_password=password"
+ appended and we can continue to use it.
+ 
